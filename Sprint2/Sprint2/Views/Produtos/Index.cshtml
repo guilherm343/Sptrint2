@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Sprint2.Models.Produto>
+
+@{
+    ViewData["Title"] = "Produtos";
+}
+
+<h1>Produtos</h1>
+
+<p>
+    <a asp-action="Create">Criar novo Produto</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estoque)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrecoUnitario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Categorias)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fornecedores)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estoque)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrecoUnitario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categorias.CategoriaId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fornecedores.FornecedorId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ProdutoId">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.ProdutoId">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.ProdutoId">Apagar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

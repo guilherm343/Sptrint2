@@ -1,0 +1,39 @@
+﻿@model Sprint2.Models.ItemVenda
+
+@{
+    ViewData["Title"] = "Apagando";
+}
+
+<h1>Apagando</h1>
+
+<h3>Tem certeza que deseja apagar isso?</h3>
+<div>
+    <h4>ItemVenda</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Vendas)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Vendas.VendaId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Produtos)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Produtos.ProdutoId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Quantidade)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Quantidade)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ItemVendaId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Voltar para Itens de Vendas</a>
+    </form>
+</div>

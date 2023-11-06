@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Sprint2.Models.ItemCompra>
+
+@{
+    ViewData["Title"] = "Itens de Compra";
+}
+
+<h1>Itens de Compra</h1>
+
+<p>
+    <a asp-action="Create">Criar Item de Compra</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Compras)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Produtos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantidade)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Compras.CompraId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Produtos.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantidade)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ItemCompraId">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.ItemCompraId">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.ItemCompraId">Apagar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
